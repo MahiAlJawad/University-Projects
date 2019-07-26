@@ -1,0 +1,411 @@
+version 2
+run Ping2-0-20190326-23:06:25-10276
+attr configname Ping2
+attr datetime 20190326-23:06:25
+attr experiment Ping2
+attr inifile omnetpp.ini
+attr iterationvars ""
+attr iterationvarsf ""
+attr measurement ""
+attr network GRP5_network
+attr processid 10276
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+param **.constraintAreaMaxX 600m
+param **.constraintAreaMaxY 400m
+param **.constraintAreaMaxZ 0m
+param **.constraintAreaMinX 0m
+param **.constraintAreaMinY 0m
+param **.constraintAreaMinZ 0m
+param **.host*.mobility.changeAngleBy "normal(0deg, 30deg)"
+param **.host*.mobility.changeInterval "truncnormal(2s, 0.5s)"
+param **.host*.mobility.initFromDisplayString false
+param **.host*.mobility.speed "truncnormal(20mps, 8mps)"
+param **.host*.mobility.updateInterval 100ms
+param **.host*.mobilityType "\"MassMobility\""
+param **.pingApp[*].printPing true
+param **.pingApp[0].startTime uniform(1s,5s)
+param **.pingApp[1].startTime 5s+uniform(1s,5s)
+param **.wlan[*].bitrate 2Mbps
+param **.wlan[*].mac.address "\"auto\""
+param **.wlan[*].mac.headerLength 20B
+param **.wlan[*].radio.receiver.ignoreInterference true
+param **.wlan[*].radio.transmitter.bitrate 2Mbps
+param **.wlan[*].radio.transmitter.communicationRange 200m
+param **.wlan[*].radio.transmitter.detectionRange 0m
+param **.wlan[*].radio.transmitter.headerBitLength 100b
+param **.wlan[*].radio.transmitter.interferenceRange 0m
+param **.wlan[*].radioType "\"IdealRadio\""
+param **.wlan[*].typename "\"IdealWirelessNic\""
+param *.host[*].numPingApps 2
+param *.host[*].pingApp[*].destAddr "\"host[0]\""
+param *.host[0].numPingApps 0
+
+vector 8  GRP5_network.host[0].wlan[0].queue  queueLength:vector  ETV
+attr interpolationmode  sample-hold
+attr title  "queue length, vector"
+vector 25  GRP5_network.host[1].wlan[0].queue  queueLength:vector  ETV
+attr interpolationmode  sample-hold
+attr title  "queue length, vector"
+vector 52  GRP5_network.host[2].wlan[0].queue  queueLength:vector  ETV
+attr interpolationmode  sample-hold
+attr title  "queue length, vector"
+vector 79  GRP5_network.host[3].wlan[0].queue  queueLength:vector  ETV
+attr interpolationmode  sample-hold
+attr title  "queue length, vector"
+vector 106  GRP5_network.host[4].wlan[0].queue  queueLength:vector  ETV
+attr interpolationmode  sample-hold
+attr title  "queue length, vector"
+vector 133  GRP5_network.host[5].wlan[0].queue  queueLength:vector  ETV
+attr interpolationmode  sample-hold
+attr title  "queue length, vector"
+vector 160  GRP5_network.host[6].wlan[0].queue  queueLength:vector  ETV
+attr interpolationmode  sample-hold
+attr title  "queue length, vector"
+vector 187  GRP5_network.host[7].wlan[0].queue  queueLength:vector  ETV
+attr interpolationmode  sample-hold
+attr title  "queue length, vector"
+vector 214  GRP5_network.host[8].wlan[0].queue  queueLength:vector  ETV
+attr interpolationmode  sample-hold
+attr title  "queue length, vector"
+vector 241  GRP5_network.host[9].wlan[0].queue  queueLength:vector  ETV
+attr interpolationmode  sample-hold
+attr title  "queue length, vector"
+vector 14  GRP5_network.host[0].wlan[0].radio  radioMode:vector  ETV
+attr interpolationmode  sample-hold
+attr source  radioModeChanged
+attr title  "Radio mode, vector"
+vector 31  GRP5_network.host[1].wlan[0].radio  radioMode:vector  ETV
+attr interpolationmode  sample-hold
+attr source  radioModeChanged
+attr title  "Radio mode, vector"
+vector 58  GRP5_network.host[2].wlan[0].radio  radioMode:vector  ETV
+attr interpolationmode  sample-hold
+attr source  radioModeChanged
+attr title  "Radio mode, vector"
+vector 85  GRP5_network.host[3].wlan[0].radio  radioMode:vector  ETV
+attr interpolationmode  sample-hold
+attr source  radioModeChanged
+attr title  "Radio mode, vector"
+vector 112  GRP5_network.host[4].wlan[0].radio  radioMode:vector  ETV
+attr interpolationmode  sample-hold
+attr source  radioModeChanged
+attr title  "Radio mode, vector"
+vector 139  GRP5_network.host[5].wlan[0].radio  radioMode:vector  ETV
+attr interpolationmode  sample-hold
+attr source  radioModeChanged
+attr title  "Radio mode, vector"
+vector 166  GRP5_network.host[6].wlan[0].radio  radioMode:vector  ETV
+attr interpolationmode  sample-hold
+attr source  radioModeChanged
+attr title  "Radio mode, vector"
+vector 193  GRP5_network.host[7].wlan[0].radio  radioMode:vector  ETV
+attr interpolationmode  sample-hold
+attr source  radioModeChanged
+attr title  "Radio mode, vector"
+vector 220  GRP5_network.host[8].wlan[0].radio  radioMode:vector  ETV
+attr interpolationmode  sample-hold
+attr source  radioModeChanged
+attr title  "Radio mode, vector"
+vector 247  GRP5_network.host[9].wlan[0].radio  radioMode:vector  ETV
+attr interpolationmode  sample-hold
+attr source  radioModeChanged
+attr title  "Radio mode, vector"
+vector 15  GRP5_network.host[0].wlan[0].radio  receptionState:vector  ETV
+attr interpolationmode  sample-hold
+attr source  receptionStateChanged
+attr title  "Radio reception state, vector"
+vector 16  GRP5_network.host[0].wlan[0].radio  transmissionState:vector  ETV
+attr interpolationmode  sample-hold
+attr source  transmissionStateChanged
+attr title  "Radio transmission state, vector"
+vector 32  GRP5_network.host[1].wlan[0].radio  receptionState:vector  ETV
+attr interpolationmode  sample-hold
+attr source  receptionStateChanged
+attr title  "Radio reception state, vector"
+vector 33  GRP5_network.host[1].wlan[0].radio  transmissionState:vector  ETV
+attr interpolationmode  sample-hold
+attr source  transmissionStateChanged
+attr title  "Radio transmission state, vector"
+vector 59  GRP5_network.host[2].wlan[0].radio  receptionState:vector  ETV
+attr interpolationmode  sample-hold
+attr source  receptionStateChanged
+attr title  "Radio reception state, vector"
+vector 60  GRP5_network.host[2].wlan[0].radio  transmissionState:vector  ETV
+attr interpolationmode  sample-hold
+attr source  transmissionStateChanged
+attr title  "Radio transmission state, vector"
+vector 86  GRP5_network.host[3].wlan[0].radio  receptionState:vector  ETV
+attr interpolationmode  sample-hold
+attr source  receptionStateChanged
+attr title  "Radio reception state, vector"
+vector 87  GRP5_network.host[3].wlan[0].radio  transmissionState:vector  ETV
+attr interpolationmode  sample-hold
+attr source  transmissionStateChanged
+attr title  "Radio transmission state, vector"
+vector 113  GRP5_network.host[4].wlan[0].radio  receptionState:vector  ETV
+attr interpolationmode  sample-hold
+attr source  receptionStateChanged
+attr title  "Radio reception state, vector"
+vector 114  GRP5_network.host[4].wlan[0].radio  transmissionState:vector  ETV
+attr interpolationmode  sample-hold
+attr source  transmissionStateChanged
+attr title  "Radio transmission state, vector"
+vector 140  GRP5_network.host[5].wlan[0].radio  receptionState:vector  ETV
+attr interpolationmode  sample-hold
+attr source  receptionStateChanged
+attr title  "Radio reception state, vector"
+vector 141  GRP5_network.host[5].wlan[0].radio  transmissionState:vector  ETV
+attr interpolationmode  sample-hold
+attr source  transmissionStateChanged
+attr title  "Radio transmission state, vector"
+vector 167  GRP5_network.host[6].wlan[0].radio  receptionState:vector  ETV
+attr interpolationmode  sample-hold
+attr source  receptionStateChanged
+attr title  "Radio reception state, vector"
+vector 168  GRP5_network.host[6].wlan[0].radio  transmissionState:vector  ETV
+attr interpolationmode  sample-hold
+attr source  transmissionStateChanged
+attr title  "Radio transmission state, vector"
+vector 194  GRP5_network.host[7].wlan[0].radio  receptionState:vector  ETV
+attr interpolationmode  sample-hold
+attr source  receptionStateChanged
+attr title  "Radio reception state, vector"
+vector 195  GRP5_network.host[7].wlan[0].radio  transmissionState:vector  ETV
+attr interpolationmode  sample-hold
+attr source  transmissionStateChanged
+attr title  "Radio transmission state, vector"
+vector 221  GRP5_network.host[8].wlan[0].radio  receptionState:vector  ETV
+attr interpolationmode  sample-hold
+attr source  receptionStateChanged
+attr title  "Radio reception state, vector"
+vector 222  GRP5_network.host[8].wlan[0].radio  transmissionState:vector  ETV
+attr interpolationmode  sample-hold
+attr source  transmissionStateChanged
+attr title  "Radio transmission state, vector"
+vector 248  GRP5_network.host[9].wlan[0].radio  receptionState:vector  ETV
+attr interpolationmode  sample-hold
+attr source  receptionStateChanged
+attr title  "Radio reception state, vector"
+vector 249  GRP5_network.host[9].wlan[0].radio  transmissionState:vector  ETV
+attr interpolationmode  sample-hold
+attr source  transmissionStateChanged
+attr title  "Radio transmission state, vector"
+vector 145  GRP5_network.host[5].pingApp[0]  pingTxSeq:vector  ETV
+attr interpolationmode  none
+attr title  "ping tx seq, vector"
+vector 125  GRP5_network.host[5].networkLayer.arp  sentReq:vector  ETV
+attr title  "ARP request sent, vector"
+vector 130  GRP5_network.host[5].wlan[0].queue  rcvdPk:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr title  "received packets, vector(packetBytes)"
+vector 132  GRP5_network.host[5].wlan[0].queue  queueingTime:vector  ETV
+attr interpolationmode  none
+attr title  "queueing time, vector"
+vector 136  GRP5_network.host[5].wlan[0].mac  rcvdPkFromHL:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  packetReceivedFromUpper
+attr title  "packets received from higher layer, vector(packetBytes)"
+vector 135  GRP5_network.host[5].wlan[0].mac  sentDownPk:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  packetSentToLower
+attr title  "packets sent to lower layer, vector(packetBytes)"
+vector 245  GRP5_network.host[9].wlan[0].mac  rcvdPkFromLL:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  packetReceivedFromLower
+attr title  "packets received from lower layer, vector(packetBytes)"
+vector 242  GRP5_network.host[9].wlan[0].mac  passedUpPk:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  packetSentToUpper
+attr title  "packets passed to higher layer, vector(packetBytes)"
+vector 37  GRP5_network.host[1].pingApp[0]  pingTxSeq:vector  ETV
+attr interpolationmode  none
+attr title  "ping tx seq, vector"
+vector 17  GRP5_network.host[1].networkLayer.arp  sentReq:vector  ETV
+attr title  "ARP request sent, vector"
+vector 22  GRP5_network.host[1].wlan[0].queue  rcvdPk:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr title  "received packets, vector(packetBytes)"
+vector 24  GRP5_network.host[1].wlan[0].queue  queueingTime:vector  ETV
+attr interpolationmode  none
+attr title  "queueing time, vector"
+vector 28  GRP5_network.host[1].wlan[0].mac  rcvdPkFromHL:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  packetReceivedFromUpper
+attr title  "packets received from higher layer, vector(packetBytes)"
+vector 27  GRP5_network.host[1].wlan[0].mac  sentDownPk:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  packetSentToLower
+attr title  "packets sent to lower layer, vector(packetBytes)"
+vector 218  GRP5_network.host[8].wlan[0].mac  rcvdPkFromLL:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  packetReceivedFromLower
+attr title  "packets received from lower layer, vector(packetBytes)"
+vector 215  GRP5_network.host[8].wlan[0].mac  passedUpPk:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  packetSentToUpper
+attr title  "packets passed to higher layer, vector(packetBytes)"
+vector 12  GRP5_network.host[0].wlan[0].mac  rcvdPkFromLL:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  packetReceivedFromLower
+attr title  "packets received from lower layer, vector(packetBytes)"
+vector 9  GRP5_network.host[0].wlan[0].mac  passedUpPk:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  packetSentToUpper
+attr title  "packets passed to higher layer, vector(packetBytes)"
+vector 1  GRP5_network.host[0].networkLayer.arp  sentReply:vector  ETV
+attr title  "ARP replies sent, vector"
+vector 5  GRP5_network.host[0].wlan[0].queue  rcvdPk:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr title  "received packets, vector(packetBytes)"
+vector 7  GRP5_network.host[0].wlan[0].queue  queueingTime:vector  ETV
+attr interpolationmode  none
+attr title  "queueing time, vector"
+vector 11  GRP5_network.host[0].wlan[0].mac  rcvdPkFromHL:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  packetReceivedFromUpper
+attr title  "packets received from higher layer, vector(packetBytes)"
+vector 10  GRP5_network.host[0].wlan[0].mac  sentDownPk:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  packetSentToLower
+attr title  "packets sent to lower layer, vector(packetBytes)"
+vector 56  GRP5_network.host[2].wlan[0].mac  rcvdPkFromLL:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  packetReceivedFromLower
+attr title  "packets received from lower layer, vector(packetBytes)"
+vector 53  GRP5_network.host[2].wlan[0].mac  passedUpPk:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  packetSentToUpper
+attr title  "packets passed to higher layer, vector(packetBytes)"
+vector 164  GRP5_network.host[6].wlan[0].mac  rcvdPkFromLL:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  packetReceivedFromLower
+attr title  "packets received from lower layer, vector(packetBytes)"
+vector 161  GRP5_network.host[6].wlan[0].mac  passedUpPk:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  packetSentToUpper
+attr title  "packets passed to higher layer, vector(packetBytes)"
+vector 110  GRP5_network.host[4].wlan[0].mac  rcvdPkFromLL:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  packetReceivedFromLower
+attr title  "packets received from lower layer, vector(packetBytes)"
+vector 107  GRP5_network.host[4].wlan[0].mac  passedUpPk:vector(packetBytes)  ETV
+attr interpolationmode  none
+attr source  packetSentToUpper
+attr title  "packets passed to higher layer, vector(packetBytes)"
+1	376	2.694861632471	1
+5	378	2.694861632471	28
+7	378	2.694861632471	0
+8	0	0	0
+9	374	2.694861632471	28
+10	379	2.694861632471	48
+11	379	2.694861632471	28
+12	374	2.694861632471	48
+14	0	0	0
+14	0	0	4
+15	0	0	1
+15	360	2.694619632471	3
+15	373	2.694861632471	1
+16	0	0	1
+16	380	2.694861632471	2
+16	406	2.695103632471	1
+17	354	2.694619187154	1
+22	356	2.694619187154	28
+24	356	2.694619187154	0
+25	0	0	0
+27	357	2.694619187154	48
+28	357	2.694619187154	28
+31	0	0	0
+31	0	0	4
+32	0	0	1
+32	397	2.694862077792	3
+33	0	0	1
+33	358	2.694619187154	2
+33	368	2.694861187154	1
+37	352	2.694619187154	0
+52	0	0	0
+53	382	2.694861646387	28
+56	382	2.694861646387	48
+58	0	0	0
+58	0	0	4
+59	0	0	1
+59	361	2.694619646387	3
+59	381	2.694861646387	1
+59	389	2.694861730201	3
+60	0	0	1
+79	0	0	0
+85	0	0	0
+85	0	0	4
+86	0	0	1
+87	0	0	1
+106	0	0	0
+107	391	2.694861751056	28
+110	391	2.694861751056	48
+112	0	0	0
+112	0	0	4
+113	0	0	1
+113	363	2.694619751056	3
+113	390	2.694861751056	1
+113	394	2.694861884447	3
+114	0	0	1
+125	123	1.080873596482	1
+125	257	2.080873596482	1
+130	125	1.080873596482	28
+130	261	2.080873596482	28
+132	125	1.080873596482	0
+132	261	2.080873596482	0
+133	0	0	0
+135	126	1.080873596482	48
+135	262	2.080873596482	48
+136	126	1.080873596482	28
+136	262	2.080873596482	28
+139	0	0	0
+139	0	0	4
+140	0	0	1
+141	0	0	1
+141	127	1.080873596482	2
+141	137	1.081115596482	1
+141	263	2.080873596482	2
+141	273	2.081115596482	1
+145	121	1.080873596482	0
+145	256	2.080873596482	1
+160	0	0	0
+161	386	2.694861691894	28
+164	386	2.694861691894	48
+166	0	0	0
+166	0	0	4
+167	0	0	1
+167	362	2.694619691894	3
+167	385	2.694861691894	1
+168	0	0	1
+187	0	0	0
+193	0	0	0
+193	0	0	4
+194	0	0	1
+195	0	0	1
+214	0	0	0
+215	370	2.694861510226	28
+218	370	2.694861510226	48
+220	0	0	0
+220	0	0	4
+221	0	0	1
+221	359	2.694619510226	3
+221	369	2.694861510226	1
+221	396	2.694862042146	3
+222	0	0	1
+241	0	0	0
+242	139	1.081115911065	28
+242	275	2.081115894384	28
+245	139	1.081115911065	48
+245	275	2.081115894384	48
+247	0	0	0
+247	0	0	4
+248	0	0	1
+248	128	1.080873911065	3
+248	138	1.081115911065	1
+248	264	2.080873894384	3
+248	274	2.081115894384	1
+249	0	0	1

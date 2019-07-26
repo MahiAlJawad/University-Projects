@@ -1,0 +1,4 @@
+#!/bin/sh
+cd `dirname $0`
+../src/grp5_wirelessadhoc -n .:../src $*
+# for shared lib, use: opp_run -l ../src/grp5_wirelessadhoc -n .:../src $*

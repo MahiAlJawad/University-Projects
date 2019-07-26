@@ -1,0 +1,87 @@
+file 3296 1553605183                                            
+version 2
+run Ping1-0-20190326-18:59:41-3120
+attr configname Ping1
+attr datetime 20190326-18:59:41
+attr experiment Ping1
+attr inifile omnetpp.ini
+attr iterationvars ""
+attr iterationvarsf ""
+attr measurement ""
+attr network GRP5_network
+attr processid 3120
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+param **.constraintAreaMaxX 600m
+param **.constraintAreaMaxY 400m
+param **.constraintAreaMaxZ 0m
+param **.constraintAreaMinX 0m
+param **.constraintAreaMinY 0m
+param **.constraintAreaMinZ 0m
+param **.host*.mobility.changeAngleBy "normal(0deg, 30deg)"
+param **.host*.mobility.changeInterval "truncnormal(2s, 0.5s)"
+param **.host*.mobility.initFromDisplayString false
+param **.host*.mobility.speed "truncnormal(20mps, 8mps)"
+param **.host*.mobility.updateInterval 100ms
+param **.host*.mobilityType "\"MassMobility\""
+param **.pingApp[*].printPing true
+param **.pingApp[0].startTime uniform(1s,5s)
+param **.pingApp[1].startTime 5s+uniform(1s,5s)
+param **.wlan[*].bitrate 2Mbps
+param **.wlan[*].mac.address "\"auto\""
+param **.wlan[*].mac.headerLength 20B
+param **.wlan[*].radio.receiver.ignoreInterference true
+param **.wlan[*].radio.transmitter.bitrate 2Mbps
+param **.wlan[*].radio.transmitter.detectionRange 0m
+param **.wlan[*].radio.transmitter.headerBitLength 100b
+param **.wlan[*].radio.transmitter.interferenceRange 0m
+param **.wlan[*].radioType "\"IdealRadio\""
+param **.wlan[*].typename "\"IdealWirelessNic\""
+param *.host[*].numPingApps 2
+param *.host[*].pingApp[*].destAddr "\"host[0]\""
+param *.host[0].numPingApps 0
+param *.host[0].wlan[*].radio.transmitter.communicationRange 250m
+param *.host[1].wlan[*].radio.transmitter.communicationRange 300m
+param *.numHosts 2
+
+vector 8  GRP5_network.host[0].wlan[0].queue  queueLength:vector  ETV
+attr interpolationmode  sample-hold
+attr title  "queue length, vector"
+vector 25  GRP5_network.host[1].wlan[0].queue  queueLength:vector  ETV
+attr interpolationmode  sample-hold
+attr title  "queue length, vector"
+vector 14  GRP5_network.host[0].wlan[0].radio  radioMode:vector  ETV
+attr interpolationmode  sample-hold
+attr source  radioModeChanged
+attr title  "Radio mode, vector"
+vector 31  GRP5_network.host[1].wlan[0].radio  radioMode:vector  ETV
+attr interpolationmode  sample-hold
+attr source  radioModeChanged
+attr title  "Radio mode, vector"
+vector 15  GRP5_network.host[0].wlan[0].radio  receptionState:vector  ETV
+attr interpolationmode  sample-hold
+attr source  receptionStateChanged
+attr title  "Radio reception state, vector"
+vector 16  GRP5_network.host[0].wlan[0].radio  transmissionState:vector  ETV
+attr interpolationmode  sample-hold
+attr source  transmissionStateChanged
+attr title  "Radio transmission state, vector"
+vector 32  GRP5_network.host[1].wlan[0].radio  receptionState:vector  ETV
+attr interpolationmode  sample-hold
+attr source  receptionStateChanged
+attr title  "Radio reception state, vector"
+vector 33  GRP5_network.host[1].wlan[0].radio  transmissionState:vector  ETV
+attr interpolationmode  sample-hold
+attr source  transmissionStateChanged
+attr title  "Radio transmission state, vector"
+8	3197 9 0 0 0 0 1 0 0 0 0
+14	3206 20 0 0 0 0 2 0 4 4 16
+15	3226 10 0 0 0 0 1 1 1 1 1
+16	3236 10 0 0 0 0 1 1 1 1 1
+25	3246 10 0 0 0 0 1 0 0 0 0
+31	3256 20 0 0 0 0 2 0 4 4 16
+32	3276 10 0 0 0 0 1 1 1 1 1
+33	3286 10 0 0 0 0 1 1 1 1 1
