@@ -48,6 +48,10 @@ namespace StockManagementSystem.UI
             {
                 e.Row.Attributes.Add("ondblclick", "__doPostBack('catagoryGridView','Select$" + e.Row.RowIndex + "');");
             }
+            if (e.Row.RowType == DataControlRowType.Header)
+            {
+                e.Row.TableSection = TableRowSection.TableHeader;
+            }
         }
 
         protected void catagoryGridView_OnSelectedIndexChanged(object sender, EventArgs e)

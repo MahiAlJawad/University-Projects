@@ -4,3 +4,9 @@ c:\users\mahia\onedrive\documents\visual studio 2013\Projects\StockManagementSys
 c:\users\mahia\onedrive\documents\visual studio 2013\Projects\StockManagementSystem\StockManagementSystem\obj\Debug\StockManagementSystem.csprojResolveAssemblyReference.cache
 c:\users\mahia\onedrive\documents\visual studio 2013\Projects\StockManagementSystem\StockManagementSystem\obj\Debug\StockManagementSystem.dll
 c:\users\mahia\onedrive\documents\visual studio 2013\Projects\StockManagementSystem\StockManagementSystem\obj\Debug\StockManagementSystem.pdb
+C:\Users\mahia\OneDrive\Desktop\MyGIt\Projects\Asp.Net Projects\StockManagementSystem\StockManagementSystem\bin\StockManagementSystem.dll.config
+C:\Users\mahia\OneDrive\Desktop\MyGIt\Projects\Asp.Net Projects\StockManagementSystem\StockManagementSystem\bin\StockManagementSystem.dll
+C:\Users\mahia\OneDrive\Desktop\MyGIt\Projects\Asp.Net Projects\StockManagementSystem\StockManagementSystem\bin\StockManagementSystem.pdb
+C:\Users\mahia\OneDrive\Desktop\MyGIt\Projects\Asp.Net Projects\StockManagementSystem\StockManagementSystem\obj\Debug\StockManagementSystem.csprojResolveAssemblyReference.cache
+C:\Users\mahia\OneDrive\Desktop\MyGIt\Projects\Asp.Net Projects\StockManagementSystem\StockManagementSystem\obj\Debug\StockManagementSystem.dll
+C:\Users\mahia\OneDrive\Desktop\MyGIt\Projects\Asp.Net Projects\StockManagementSystem\StockManagementSystem\obj\Debug\StockManagementSystem.pdb

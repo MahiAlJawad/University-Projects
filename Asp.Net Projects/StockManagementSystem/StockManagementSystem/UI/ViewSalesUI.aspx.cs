@@ -51,5 +51,13 @@ namespace StockManagementSystem.UI
                 toDateTextBox.Text = "";
             }
         }
+
+        protected void salesGridView_OnRowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.Header)
+            {
+                e.Row.TableSection = TableRowSection.TableHeader;
+            }
+        }
     }
 }

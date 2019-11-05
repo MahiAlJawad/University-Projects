@@ -63,6 +63,7 @@ namespace StockManagementSystem.UI
             if (categoryDropDownList.SelectedValue == "0" && companyDropDownList.SelectedValue == "0")
             {
                 messageLebel.Text = "Please select the Company and/or Category first!";
+                PopulateGridView(new List<ItemDetails>());
                 return;
             }
             string companyName = companyDropDownList.SelectedItem.Text;
@@ -110,6 +111,14 @@ namespace StockManagementSystem.UI
                                         " Company!";
                 }
                 PopulateGridView(items);
+            }
+        }
+
+        protected void itemGridView_OnRowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.Header)
+            {
+                e.Row.TableSection = TableRowSection.TableHeader;
             }
         }
     }

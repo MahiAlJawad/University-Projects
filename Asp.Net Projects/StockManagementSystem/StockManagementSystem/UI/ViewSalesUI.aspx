@@ -5,55 +5,125 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>View Sales</title>
-     <Style>
-      .dashboard td {
-            color: red;
-            height: 10px;
-            width: 100px;
-            text-align: center;
-        }
-      
-    </Style>
+    
     <link href="../Styles/jquery-ui.css" rel="stylesheet" />
+     <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" />
+    <link href="../vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet" />
+    <link href="../Styles/sb-admin.min.css" rel="stylesheet" />
+    <link href="../Styles/table-center.css" rel="stylesheet" />
 </head>
-<body>
-    <form id="form1" runat="server">
-      <div class="dashboard">
-    <table>
-        <tr>
-            <td><a href="AddCategoryUI.aspx">Add Category</a></td>
-            <td><a href="AddCompanyUI.aspx">Add Company</a></td>
-            <td><a href="AddItemUI.aspx">Add Item</a></td>
-            <td><a href="StockInUI.aspx">Stock In</a></td>
-            <td><a href="StockOutUI.aspx">Stock Out</a></td>
-            <td><a href="ItemStatusUI.aspx">Item Status</a></td>
-            <td><a href="ViewSalesUI.aspx">Sales</a></td>
+<body id="page-top">
+      <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
-        </tr>
-    </table>
-    </div>    
-    <div>
+        <a class="navbar-brand mr-1" href="#">Stock Management System</a>
+
+        <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
+            <i class="fas fa-bars"></i>
+        </button>
+
+     </nav>
+     <div id="wrapper">
         
-        <br />
-        <asp:Label ID="Label1" runat="server" Text="From Date"></asp:Label>
-&nbsp;&nbsp;&nbsp;
-        <asp:TextBox ID="fromDateTextBox" runat="server"></asp:TextBox>
-        <br />
-        <asp:Label ID="Label2" runat="server" Text="To Date"></asp:Label>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:TextBox ID="toDateTextBox" runat="server"></asp:TextBox>
-        <br />
-        <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:Button ID="searchButton" runat="server" Text="Search" OnClick="searchButton_Click" />
-        <br />
-        <br />
-        <asp:Label ID="messageLabel" runat="server"></asp:Label>
-        <br />
-        <br />
-        <asp:GridView ID="salesGridView" runat="server" AutoGenerateColumns="False">
+     <ul class="sidebar navbar-nav">
+            
+       <li class="nav-item">
+        <a class="nav-link" href="StockInUI.aspx">
+          <i class="fas fa-fw fa-table"></i>
+          <span>Stock In</span>
+
+        </a>
+       </li> 
+        <li class="nav-item">
+        <a class="nav-link" href="StockOutUI.aspx">
+          <i class="fas fa-fw fa-table"></i>
+          <span>Stock Out</span>
+
+        </a>
+       </li> 
+        <li class="nav-item">
+        <a class="nav-link" href="AddItemUI.aspx">
+          <i class="fas fa-fw fa-table"></i>
+          <span>Add Item</span>
+
+        </a>
+       </li> 
+        <li class="nav-item">
+        <a class="nav-link" href="AddCategoryUI.aspx">
+          <i class="fas fa-fw fa-table"></i>
+          <span>Add Category</span> 
+
+        </a>
+       </li> 
+        <li class="nav-item">
+        <a class="nav-link" href="AddCompanyUI.aspx">
+          <i class="fas fa-fw fa-table"></i>
+          <span>Add Company</span>
+
+        </a>
+       </li> 
+        <li class="nav-item">
+        <a class="nav-link" href="ItemStatusUI.aspx">
+          <i class="fas fa-fw fa-table"></i>
+          <span>Item Summary</span>
+
+        </a>
+       </li> 
+        <li class="nav-item active">
+        <a class="nav-link" href="ViewSalesUI.aspx">
+          <i class="fas fa-fw fa-table"></i>
+          <span>View Sales</span>
+
+        </a>
+       </li> 
+    </ul>
+        
+    <div id="content-wrapper">
+    <form id="form1" runat="server">
+    
+     <div class="card mb-3">
+          <div class="card-header">
+           View Sales
+           </div>
+          <div class="card-body">
+            <div class="form-group">
+            <table class="center">
+               <tr>
+                   <td><label for="fromDateTextBox">From Date</label></td>
+                   <td></td>
+                   <td>
+                          <asp:TextBox CssClass="form-control" placeholder="YYYY/MM/DD"  ID="fromDateTextBox" runat="server"></asp:TextBox>
+                   </td>
+               </tr>
+                 <tr>
+                   <td><label for="toDateTextBox">To Date</label></td>
+                   <td></td>
+                   <td>
+                      <asp:TextBox CssClass="form-control" placeholder="YYYY/MM/DD"  ID="toDateTextBox" runat="server"></asp:TextBox>
+                   </td>
+               </tr>
+                 <tr>
+                   <td></td>
+                   <td></td>
+                   <td>
+                       <asp:Button CssClass="btn btn-primary btn-block"  ID="searchButton" runat="server" Text="Search" OnClick="searchButton_Click" />
+                   </td>
+               </tr>
+            </table>
+            </div>
+          </div>
+          <div class="card-footer small text-muted"><asp:Label ID="messageLabel" runat="server"></asp:Label> </div>
+        </div>    
+         <div class="card mb-3">
+          <div class="card-header">
+            <i class="fas fa-table"></i>
+           View Sales by Date
+
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+                 <asp:GridView width="100%" cellspacing="0" CssClass="table table-bordered" OnRowDataBound="salesGridView_OnRowDataBound" ID="salesGridView" runat="server" AutoGenerateColumns="False">
             <Columns>
-                <asp:TemplateField HeaderText="SL">
+                <asp:TemplateField HeaderText="SL#">
                     <ItemTemplate><%#Container.DataItemIndex+1 %></ItemTemplate>
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Item">
@@ -68,35 +138,88 @@
                 </asp:TemplateField>
             </Columns>
         </asp:GridView>
-        
-    </div>
+            </div>
+          </div>
+             <div class="card-footer small text-muted"></div>
+        </div>
+
     </form>
+      </div>
+
+     <footer class="sticky-footer">
+        <div class="container my-auto">
+          <div class="copyright text-center my-auto">
+            <span>Copyright © Personal Stock Management System</span>
+            <br />
+            <span>Developed by Mahi Al Jawad and Team O(n!)</span>
+          </div>
+        </div>
+      </footer>   
+        
+    </div>  
+    <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+    </a>
+    <!-- Bootstrap core JavaScript-->
+
+  
+             
+  <script src="../vendor/jquery/jquery.min.js"></script>
+  <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Core plugin JavaScript-->
+  <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Page level plugin JavaScript-->
+  <script src="../vendor/chart.js/Chart.min.js"></script>
+  <script src="../vendor/datatables/jquery.dataTables.js"></script>
+  <script src="../vendor/datatables/dataTables.bootstrap4.js"></script>
+
+  <!-- Custom scripts for all pages-->
+  
+   <script src="../Scripts/sb-admin.min.js"></script>
+
+  <!-- Demo scripts for this page-->
+    
+  <script src="../Scripts/demo/datatables-demo.js"></script>
+  <script src="../Scripts/demo/chart-area-demo.js"></script>
     <script src="../Scripts/jquery-ui.js"></script>
-    <script src="../Scripts/jquery-3.4.1.js"></script>
-    <script src="../Scripts/jquery-ui-1.12.1.min.js"></script>
-    <script>
-        $(function () {
-            $('#fromDateTextBox').datepicker(
-            {
-                showOn: "button",
-                dateFormat: 'yy/mm/dd',
-                changeMonth: true,
-                changeYear: true,
-                yearRange: '1990:2100',
-                buttonText: "Select Date"
-            });
-        });
-        $(function () {
-            $('#toDateTextBox').datepicker(
-            {
-                showOn: "button",
-                dateFormat: 'yy/mm/dd',
-                changeMonth: true,
-                changeYear: true,
-                yearRange: '1990:2100',
-                buttonText: "Select Date"
-            });
-        });
-    </script>
+  <script src="../Scripts/jquery-3.4.1.js"></script>
+  <script src="../Scripts/jquery-ui-1.12.1.min.js"></script> 
+<script>
+    $(document).ready(function () {
+        $("#salesGridView").DataTable();
+
+    });
+
+</script>
+
+ <script>
+    
+     $(function () {
+        
+         $('#fromDateTextBox').datepicker(
+         {
+             //showOn: "button",
+             dateFormat: 'yy/mm/dd',
+             changeMonth: true,
+             changeYear: true,
+             yearRange: '1990:2100',
+             //buttonText: "Select Date"
+         });
+     });
+     $(function () {
+         $('#toDateTextBox').datepicker(
+         {
+             //showOn: "button",
+             dateFormat: 'yy/mm/dd',
+             changeMonth: true,
+             changeYear: true,
+             yearRange: '1990:2100',
+             //buttonText: "Select Date"
+         });
+     });
+ </script>   
+
 </body>
 </html>

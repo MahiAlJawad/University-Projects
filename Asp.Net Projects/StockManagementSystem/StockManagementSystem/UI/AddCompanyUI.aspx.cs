@@ -30,5 +30,15 @@ namespace StockManagementSystem.UI
             nameTextBox.Text = "";
             PopulateGridView();
         }
+
+        protected void companyGridView_OnRowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.Header)
+            {
+                e.Row.TableSection = TableRowSection.TableHeader;
+            }
+        }
+
+       
     }
 }
