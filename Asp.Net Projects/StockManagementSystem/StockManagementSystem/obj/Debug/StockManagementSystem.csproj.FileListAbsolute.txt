@@ -1,0 +1,6 @@
+c:\users\mahia\onedrive\documents\visual studio 2013\Projects\StockManagementSystem\StockManagementSystem\bin\StockManagementSystem.dll.config
+c:\users\mahia\onedrive\documents\visual studio 2013\Projects\StockManagementSystem\StockManagementSystem\bin\StockManagementSystem.dll
+c:\users\mahia\onedrive\documents\visual studio 2013\Projects\StockManagementSystem\StockManagementSystem\bin\StockManagementSystem.pdb
+c:\users\mahia\onedrive\documents\visual studio 2013\Projects\StockManagementSystem\StockManagementSystem\obj\Debug\StockManagementSystem.csprojResolveAssemblyReference.cache
+c:\users\mahia\onedrive\documents\visual studio 2013\Projects\StockManagementSystem\StockManagementSystem\obj\Debug\StockManagementSystem.dll
+c:\users\mahia\onedrive\documents\visual studio 2013\Projects\StockManagementSystem\StockManagementSystem\obj\Debug\StockManagementSystem.pdb
