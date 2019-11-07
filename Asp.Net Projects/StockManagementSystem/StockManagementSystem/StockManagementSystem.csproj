@@ -109,6 +109,7 @@
     <Content Include="Scripts\popper.min.js" />
     <Content Include="Scripts\sb-admin.js" />
     <Content Include="Scripts\sb-admin.min.js" />
+    <Content Include="Scripts\typings\jspdf\jspdf.d.ts" />
     <Content Include="Styles\error-message-styling.css" />
     <Content Include="Styles\message-label-color.css" />
     <Content Include="Styles\sb-admin.css" />

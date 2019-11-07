@@ -34,12 +34,16 @@ namespace StockManagementSystem.UI
             if (fromDate == "" || toDate == "")
             {
                 messageLabel.Text = "Please select Date first!";
+                fromDateTextBox.Text = "";
+                toDateTextBox.Text = "";
                 PopulateGridView(new List<Sales>());
                 return;
             }
             if (DateTime.Parse(toDate) < DateTime.Parse(fromDate))
             {
                 messageLabel.Text = "Invalid Search! To Date must be greater or equals to the from Date!";
+                fromDateTextBox.Text = "";
+                toDateTextBox.Text = "";
                 PopulateGridView(new List<Sales>());
                 return;
             }

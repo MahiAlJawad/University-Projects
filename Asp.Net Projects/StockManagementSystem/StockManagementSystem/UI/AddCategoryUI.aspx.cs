@@ -62,6 +62,7 @@ namespace StockManagementSystem.UI
         {
             ViewState["nameToBeUpdated"] = catagoryGridView.SelectedDataKey.Value.ToString();
             nameTextBox.Text = ViewState["nameToBeUpdated"].ToString();
+            messageLabel.Text = "";
             saveButton.Text = "Update";
         }
     }

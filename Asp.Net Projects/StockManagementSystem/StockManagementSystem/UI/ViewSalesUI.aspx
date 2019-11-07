@@ -219,6 +219,7 @@
          $('#fromDateTextBox').datepicker(
          {
              //showOn: "button",
+             maxDate: "d",
              dateFormat: 'yy/mm/dd',
              changeMonth: true,
              changeYear: true,
@@ -230,6 +231,7 @@
          $('#toDateTextBox').datepicker(
          {
              //showOn: "button",
+             maxDate: "d",
              dateFormat: 'yy/mm/dd',
              changeMonth: true,
              changeYear: true,
