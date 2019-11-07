@@ -102,12 +102,15 @@
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
     <Content Include="packages.config" />
+    <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\popper-utils.js" />
     <Content Include="Scripts\popper-utils.min.js" />
     <Content Include="Scripts\popper.js" />
     <Content Include="Scripts\popper.min.js" />
     <Content Include="Scripts\sb-admin.js" />
     <Content Include="Scripts\sb-admin.min.js" />
+    <Content Include="Styles\error-message-styling.css" />
+    <Content Include="Styles\message-label-color.css" />
     <Content Include="Styles\sb-admin.css" />
     <Content Include="Styles\sb-admin.min.css" />
     <Content Include="Scripts\umd\popper-utils.js" />
@@ -132,6 +135,9 @@
     <Content Include="scss\_utilities.scss" />
     <Content Include="scss\_variables.scss" />
     <Content Include="Styles\table-center.css" />
+    <Content Include="UI\LoginUI.aspx" />
+    <Content Include="UI\LogoutUI.aspx" />
+    <Content Include="UI\UserLogUI.aspx" />
     <Content Include="vendor\bootstrap\js\bootstrap.bundle.js.map" />
     <Content Include="vendor\bootstrap\js\bootstrap.bundle.min.js.map" />
     <Content Include="vendor\bootstrap\js\bootstrap.js.map" />
@@ -1893,17 +1899,20 @@
     <Compile Include="BLL\CompanyManager.cs" />
     <Compile Include="BLL\ItemManager.cs" />
     <Compile Include="BLL\SalesManager.cs" />
+    <Compile Include="BLL\UserManager.cs" />
     <Compile Include="DAL\Gateway\CategoryGateway.cs" />
     <Compile Include="DAL\Gateway\CompanyGateway.cs" />
     <Compile Include="DAL\Gateway\Gateway.cs" />
     <Compile Include="DAL\Gateway\ItemGateway.cs" />
     <Compile Include="DAL\Gateway\SalesGateway.cs" />
+    <Compile Include="DAL\Gateway\UserGateway.cs" />
     <Compile Include="DAL\Model\Category.cs" />
     <Compile Include="DAL\Model\Company.cs" />
     <Compile Include="DAL\Model\Item.cs" />
     <Compile Include="DAL\Model\ItemDetails.cs" />
     <Compile Include="DAL\Model\ItemWithCompany.cs" />
     <Compile Include="DAL\Model\Sales.cs" />
+    <Compile Include="DAL\Model\UserLog.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UI\AddCategoryUI.aspx.cs">
       <DependentUpon>AddCategoryUI.aspx</DependentUpon>
@@ -1933,6 +1942,20 @@
     <Compile Include="UI\ItemStatusUI.aspx.designer.cs">
       <DependentUpon>ItemStatusUI.aspx</DependentUpon>
     </Compile>
+    <Compile Include="UI\LoginUI.aspx.cs">
+      <DependentUpon>LoginUI.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\LoginUI.aspx.designer.cs">
+      <DependentUpon>LoginUI.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\LogoutUI.aspx.cs">
+      <DependentUpon>LogoutUI.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\LogoutUI.aspx.designer.cs">
+      <DependentUpon>LogoutUI.aspx</DependentUpon>
+    </Compile>
     <Compile Include="UI\StockInUI.aspx.cs">
       <DependentUpon>StockInUI.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1946,6 +1969,13 @@
     </Compile>
     <Compile Include="UI\StockOutUI.aspx.designer.cs">
       <DependentUpon>StockOutUI.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\UserLogUI.aspx.cs">
+      <DependentUpon>UserLogUI.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\UserLogUI.aspx.designer.cs">
+      <DependentUpon>UserLogUI.aspx</DependentUpon>
     </Compile>
     <Compile Include="UI\ViewSalesUI.aspx.cs">
       <DependentUpon>ViewSalesUI.aspx</DependentUpon>

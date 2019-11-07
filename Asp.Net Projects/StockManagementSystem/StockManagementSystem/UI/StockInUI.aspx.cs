@@ -14,6 +14,10 @@ namespace StockManagementSystem.UI
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["user"] == null)
+            {
+                Response.Redirect("LoginUI.aspx");
+            }
             CompanyManager companyManager= new CompanyManager();
             if (!IsPostBack)
             {
@@ -40,6 +44,9 @@ namespace StockManagementSystem.UI
             itemDropDownList.DataBind();
             itemDropDownList.Items.Insert(0, new ListItem("Select Item", "0"));
             messageLabel.Text = "";
+            stockQuantityTextBox.Text = "";
+            availableTextBox.Text = "";
+            reorderLevelTextBox.Text = "";
         }
 
         public void ClearFields()

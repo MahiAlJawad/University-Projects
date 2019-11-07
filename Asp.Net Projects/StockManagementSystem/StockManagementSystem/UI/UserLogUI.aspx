@@ -1,10 +1,10 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ViewSalesUI.aspx.cs" Inherits="StockManagementSystem.UI.ViewSalesUI" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="UserLogUI.aspx.cs" Inherits="StockManagementSystem.UI.UserLogUI" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>View Sales</title>
+    <title>User Session Log</title>
     <link href="../Styles/error-message-styling.css" rel="stylesheet" />
     <link href="../Styles/message-label-color.css" rel="stylesheet" />
     <link href="../Styles/jquery-ui.css" rel="stylesheet" />
@@ -14,7 +14,7 @@
     <link href="../Styles/table-center.css" rel="stylesheet" />
 </head>
 <body id="page-top">
-      <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
+     <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
         <a class="navbar-brand mr-1" href="#">Stock Management System</a>
 
@@ -23,7 +23,7 @@
         </button>
            <ul class="navbar-nav ml-auto ml-md-0-right">
 
-      <li class="nav-item dropdown no-arrow">
+      <li class="nav-item dropdown no-arrow active">
         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i class="fas fa-user-circle fa-fw"></i>
         </a>
@@ -84,7 +84,7 @@
 
         </a>
        </li> 
-        <li class="nav-item active">
+        <li class="nav-item">
         <a class="nav-link" href="ViewSalesUI.aspx">
          <i class="fas fa-clock"></i>
           <span>View Sales</span>
@@ -94,73 +94,45 @@
     </ul>
         
     <div id="content-wrapper">
+
     <form id="form1" runat="server">
-    
+        
      <div class="card mb-3">
           <div class="card-header">
-           View Sales
-           </div>
-          <div class="card-body">
-            <div class="form-group">
-            <table class="center">
-               <tr>
-                   <td><label for="fromDateTextBox">From Date</label></td>
-                   <td></td>
-                   <td>
-                          <asp:TextBox CssClass="form-control" placeholder="YYYY/MM/DD"  ID="fromDateTextBox" runat="server"></asp:TextBox>
-                   </td>
-               </tr>
-                 <tr>
-                   <td><label for="toDateTextBox">To Date</label></td>
-                   <td></td>
-                   <td>
-                      <asp:TextBox CssClass="form-control" placeholder="YYYY/MM/DD"  ID="toDateTextBox" runat="server"></asp:TextBox>
-                   </td>
-               </tr>
-                 <tr>
-                   <td></td>
-                   <td></td>
-                   <td>
-                       <asp:Button CssClass="btn btn-primary btn-block"  ID="searchButton" runat="server" Text="Search" OnClick="searchButton_Click" />
-                   </td>
-               </tr>
-            </table>
-            </div>
-          </div>
-          <div class="card-footer small text-muted"><asp:Label ID="messageLabel" runat="server"></asp:Label> </div>
-        </div>    
-         <div class="card mb-3">
-          <div class="card-header">
             <i class="fas fa-table"></i>
-           View Sales by Date
+          User Session Log
 
           </div>
           <div class="card-body">
             <div class="table-responsive">
-                 <asp:GridView width="100%" cellspacing="0" CssClass="table table-bordered" OnRowDataBound="salesGridView_OnRowDataBound" ID="salesGridView" runat="server" AutoGenerateColumns="False">
-            <Columns>
-                <asp:TemplateField HeaderText="SL#">
-                    <ItemTemplate><%#Container.DataItemIndex+1 %></ItemTemplate>
-                </asp:TemplateField>
-                <asp:TemplateField HeaderText="Item">
-                    <ItemTemplate>
-                        <asp:Label runat="server"><%#Eval("ItemName") %></asp:Label>
-                    </ItemTemplate>
-                </asp:TemplateField>
-                <asp:TemplateField HeaderText="Sales Quantity">
-                    <ItemTemplate>
-                        <asp:Label runat="server"><%#Eval("Quantity") %></asp:Label>
-                    </ItemTemplate>
-                </asp:TemplateField>
-            </Columns>
-        </asp:GridView>
+                <asp:GridView  width="100%" cellspacing="0" CssClass="table table-bordered" OnRowDataBound="sessionGridView_OnRowDataBound" ID="sessionGridView" runat="server" AutoGenerateColumns="False" OnSelectedIndexChanged="sessionGridView_SelectedIndexChanged">
+                    <Columns>
+                         <asp:TemplateField HeaderText="SL#">
+                         <ItemTemplate><%#Container.DataItemIndex+1 %></ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:TemplateField HeaderText="Username">
+                        <ItemTemplate>
+                            <asp:Label runat="server"><%#Eval("Username") %></asp:Label>
+                        </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:TemplateField HeaderText="Session Start Time">
+                        <ItemTemplate>
+                            <asp:Label runat="server"><%#Eval("StartTime") %></asp:Label>
+                        </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:TemplateField HeaderText="Session End Time">
+                        <ItemTemplate>
+                            <asp:Label runat="server"><%#Eval("EndTime") %></asp:Label>
+                        </ItemTemplate>
+                        </asp:TemplateField>
+                     </Columns>
+                </asp:GridView>
             </div>
           </div>
              <div class="card-footer small text-muted"></div>
-        </div>
-
+        </div>    
     </form>
-      </div>
+     </div>
 
      <footer class="sticky-footer">
         <div class="container my-auto">
@@ -203,42 +175,12 @@
     
   <script src="../Scripts/demo/datatables-demo.js"></script>
   <script src="../Scripts/demo/chart-area-demo.js"></script>
-  
-<script>
-    $(document).ready(function () {
-        $("#salesGridView").DataTable();
+  <script>
+      $(document).ready(function () {
+          $("#sessionGridView").DataTable();
 
-    });
+      });
 
 </script>
-
- <script>
-    
-     $(function () {
-        
-         $('#fromDateTextBox').datepicker(
-         {
-             //showOn: "button",
-             dateFormat: 'yy/mm/dd',
-             changeMonth: true,
-             changeYear: true,
-             yearRange: '1990:2100',
-             //buttonText: "Select Date"
-         });
-     });
-     $(function () {
-         $('#toDateTextBox').datepicker(
-         {
-             //showOn: "button",
-             dateFormat: 'yy/mm/dd',
-             changeMonth: true,
-             changeYear: true,
-             yearRange: '1990:2100',
-             //buttonText: "Select Date"
-         });
-     });
- </script>   
- 
-
 </body>
 </html>

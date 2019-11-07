@@ -13,6 +13,10 @@ namespace StockManagementSystem.UI
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["user"] == null)
+            {
+                Response.Redirect("LoginUI.aspx");
+            }
             CompanyManager companyManager = new CompanyManager();
             if (!IsPostBack)
             {
@@ -62,14 +66,15 @@ namespace StockManagementSystem.UI
 
             List<ItemWithCompany> stockOutList = (List<ItemWithCompany>) ViewState["StockOutList"];
             double available = Convert.ToDouble(availableTextBox.Text);
-            double quantity = Convert.ToDouble((stockQuantityTextBox.Text));
+            double quantity;
 
-            if (quantity <= 0)
+            if (!double.TryParse(stockQuantityTextBox.Text, out quantity) || quantity<=0 )
             {
                 messageLabel.Text = "Non-positive quantity cannot be stocked out! :D";
                 ClearFields();
                 return;
             }
+            quantity = Convert.ToDouble((stockQuantityTextBox.Text));
             if (quantity > available)
             {
                 messageLabel.Text = "Stock Out Failed! :( Don't have sufficient quantity in the stock!";
@@ -117,6 +122,7 @@ namespace StockManagementSystem.UI
             ViewState["StockOutList"] = stockOutList;
             ClearFields();
             PopulateGridView();
+
         }
 
         protected void companyDropDownList_SelectedIndexChanged(object sender, EventArgs e)
@@ -131,6 +137,9 @@ namespace StockManagementSystem.UI
             itemDropDownList.DataBind();
             itemDropDownList.Items.Insert(0, new ListItem("Select Item", "0"));
             messageLabel.Text = "";
+            reorderLevelTextBox.Text = "";
+            availableTextBox.Text = "";
+            stockQuantityTextBox.Text = "";
         }
 
         protected void itemDropDownList_SelectedIndexChanged(object sender, EventArgs e)

@@ -14,7 +14,10 @@ namespace StockManagementSystem.UI
         SalesManager manager= new SalesManager();
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["user"] == null)
+            {
+                Response.Redirect("LoginUI.aspx");
+            }
         }
 
         public void PopulateGridView(List<Sales> items)
@@ -34,7 +37,12 @@ namespace StockManagementSystem.UI
                 PopulateGridView(new List<Sales>());
                 return;
             }
-            
+            if (DateTime.Parse(toDate) < DateTime.Parse(fromDate))
+            {
+                messageLabel.Text = "Invalid Search! To Date must be greater or equals to the from Date!";
+                PopulateGridView(new List<Sales>());
+                return;
+            }
             List<Sales> items = manager.GetSalesByDate(fromDate, toDate);
             if (items.Count == 0)
             {

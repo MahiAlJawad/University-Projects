@@ -9,9 +9,9 @@ using StockManagementSystem.DAL.Model;
 
 namespace StockManagementSystem.UI
 {
-    public partial class AddCompanyUI : System.Web.UI.Page
+    public partial class UserLogUI : System.Web.UI.Page
     {
-        CompanyManager manager= new CompanyManager();
+        UserManager manager= new UserManager();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["user"] == null)
@@ -23,26 +23,22 @@ namespace StockManagementSystem.UI
 
         public void PopulateGridView()
         {
-            List<Company> companies = manager.GetAllCompany();
-            companyGridView.DataSource = companies;
-            companyGridView.DataBind();
-        }
-        protected void saveButton_Click(object sender, EventArgs e)
-        {
-            Company aCompany= new Company(nameTextBox.Text);
-            messageLabel.Text = manager.Save(aCompany);
-            nameTextBox.Text = "";
-            PopulateGridView();
+            List<UserLog> logs = manager.GetUserLogs();
+            sessionGridView.DataSource = logs;
+            sessionGridView.DataBind();
         }
 
-        protected void companyGridView_OnRowDataBound(object sender, GridViewRowEventArgs e)
+        protected void sessionGridView_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void sessionGridView_OnRowDataBound(object sender, GridViewRowEventArgs e)
         {
             if (e.Row.RowType == DataControlRowType.Header)
             {
                 e.Row.TableSection = TableRowSection.TableHeader;
             }
         }
-
-       
     }
 }

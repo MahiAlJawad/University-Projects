@@ -16,6 +16,10 @@ namespace StockManagementSystem.UI
         CompanyManager companyManager = new CompanyManager();
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["user"] == null)
+            {
+                Response.Redirect("LoginUI.aspx");
+            }
             
             if (!IsPostBack)
             {

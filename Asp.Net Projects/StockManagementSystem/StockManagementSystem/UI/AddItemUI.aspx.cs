@@ -15,6 +15,10 @@ namespace StockManagementSystem.UI
         ItemManager manager= new ItemManager();
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["user"] == null)
+            {
+                Response.Redirect("LoginUI.aspx");
+            }
             CategoryManager categoryManager= new CategoryManager();
             CompanyManager companyManager= new CompanyManager();
             

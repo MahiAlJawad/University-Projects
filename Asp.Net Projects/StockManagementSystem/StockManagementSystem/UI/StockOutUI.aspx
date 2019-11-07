@@ -5,6 +5,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Stock Out</title>
+    <link href="../Styles/error-message-styling.css" rel="stylesheet" />
+    <link href="../Styles/message-label-color.css" rel="stylesheet" />
     <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" />
     <link href="../vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet" />
     <link href="../Styles/sb-admin.min.css" rel="stylesheet" />
@@ -19,57 +21,72 @@
         <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
             <i class="fas fa-bars"></i>
         </button>
+          <ul class="navbar-nav ml-auto ml-md-0-right">
+
+      <li class="nav-item dropdown no-arrow">
+        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-user-circle fa-fw"></i>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+         
+          <a class="dropdown-item" href="UserLogUI.aspx">User Log</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="LogoutUI.aspx">Logout</a>
+        </div>
+      </li>
+
+    </ul>
 
      </nav>
     <div id="wrapper">
         
-     <ul class="sidebar navbar-nav">
+    <ul class="sidebar navbar-nav">
             
        <li class="nav-item">
         <a class="nav-link" href="StockInUI.aspx">
-          <i class="fas fa-fw fa-table"></i>
+         <i class="fas fa-arrow-down"></i>
           <span>Stock In</span>
 
         </a>
        </li> 
         <li class="nav-item active">
         <a class="nav-link" href="StockOutUI.aspx">
-          <i class="fas fa-fw fa-table"></i>
+          <i class="fas fa-arrow-up"></i>
           <span>Stock Out</span>
 
         </a>
        </li> 
         <li class="nav-item">
         <a class="nav-link" href="AddItemUI.aspx">
-          <i class="fas fa-fw fa-table"></i>
+         <i class="fas fa-marker"></i>
           <span>Add Item</span>
 
         </a>
        </li> 
         <li class="nav-item">
         <a class="nav-link" href="AddCategoryUI.aspx">
-          <i class="fas fa-fw fa-table"></i>
-          <span>Add Category</span> 
+        <i class="fas fa-cogs"></i>
+          <span>Setup Category</span> 
 
         </a>
        </li> 
         <li class="nav-item">
         <a class="nav-link" href="AddCompanyUI.aspx">
-          <i class="fas fa-fw fa-table"></i>
-          <span>Add Company</span>
+         <i class="fas fa-id-card-alt"></i>
+          <span>Setup Company</span>
 
         </a>
        </li> 
         <li class="nav-item">
         <a class="nav-link" href="ItemStatusUI.aspx">
-          <i class="fas fa-fw fa-table"></i>
+         <i class="far fa-list-alt"></i>
           <span>Item Summary</span>
 
         </a>
        </li> 
         <li class="nav-item">
         <a class="nav-link" href="ViewSalesUI.aspx">
-          <i class="fas fa-fw fa-table"></i>
+         <i class="fas fa-clock"></i>
           <span>View Sales</span>
 
         </a>
@@ -172,6 +189,7 @@
              </div>
         </div>   
     </form>
+   
      </div>
 
      <footer class="sticky-footer">
@@ -189,9 +207,13 @@
     <a class="scroll-to-top rounded" href="#page-top">
     <i class="fas fa-angle-up"></i>
     </a>
+    
+    <script src="../Scripts/jquery-3.4.1.js"></script>
+    <script src="../Scripts/jquery.validate.js"></script>
+    <script src="../Scripts/jquery-ui-1.12.1.js"></script>
     <!-- Bootstrap core JavaScript-->
             
-  <script src="../vendor/jquery/jquery.min.js"></script>
+ <%-- <script src="../vendor/jquery/jquery.min.js"></script>--%>
   <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
   <!-- Core plugin JavaScript-->
@@ -209,5 +231,29 @@
   <!-- Demo scripts for this page-->
   <script src="../Scripts/demo/datatables-demo.js"></script>
   <script src="../Scripts/demo/chart-area-demo.js"></script>
+    
+    <script>
+        /*this function is meansingless here(just keeping), I cannot do this because I have the gridview also in this form1*/
+        $(function () {
+            $("#exampleFormId").validate({
+                rules: {
+                    stockQuantityTextBox:
+                    {
+                        required: true,
+                        min: 0.01
+                    }
+                },
+                messages: {
+                    stockQuantityTextBox:
+                    {
+                        required: "Stock-out quantity cannot be empty!",
+                        min: "Stock-out quantity must be positive!"
+                    }
+                }
+            });
+        });
+
+
+    </script>
 </body>
 </html>
